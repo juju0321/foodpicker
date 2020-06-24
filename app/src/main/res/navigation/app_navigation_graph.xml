@@ -1,0 +1,54 @@
+<?xml version="1.0" encoding="utf-8"?>
+<navigation
+    xmlns:android="http://schemas.android.com/apk/res/android"
+    xmlns:app="http://schemas.android.com/apk/res-auto"
+    xmlns:tools="http://schemas.android.com/tools"
+    android:id="@+id/app_navigation_graph"
+    app:startDestination="@id/spinnerWheel">
+
+    <fragment
+        android:id="@+id/spinnerWheel"
+        android:name="com.mamingjuju.foodpicker.fragments.SpinnerWheel"
+        android:label="SpinnerWheel" >
+        <action
+            android:id="@+id/action_spinnerWheel_to_spinnerItems"
+            app:destination="@id/spinnerItems" />
+        <action
+            android:id="@+id/action_spinnerWheel_to_addNewItem"
+            app:destination="@id/addNewItem" />
+    </fragment>
+    <fragment
+        android:id="@+id/spinnerItems"
+        android:name="com.mamingjuju.foodpicker.fragments.SpinnerItems"
+        android:label="SpinnerItems" >
+        <action
+            android:id="@+id/action_spinnerItems_to_addNewItem"
+            app:destination="@id/addNewItem" />
+        <action
+            android:id="@+id/action_spinnerItems_to_spinnerWheel"
+            app:destination="@id/spinnerWheel" />
+    </fragment>
+    <fragment
+        android:id="@+id/addNewItem"
+        android:name="com.mamingjuju.foodpicker.fragments.AddNewItem"
+        android:label="AddNewItem" >
+        <action
+            android:id="@+id/action_addNewItem_to_spinnerItems"
+            app:destination="@id/spinnerItems" />
+        <action
+            android:id="@+id/action_addNewItem_to_itemImageFragment"
+            app:destination="@id/itemImageFragment" />
+        <action
+            android:id="@+id/action_addNewItem_to_spinnerWheel"
+            app:destination="@id/spinnerWheel" />
+    </fragment>
+    <fragment
+        android:id="@+id/itemImageFragment"
+        android:name="com.mamingjuju.foodpicker.fragments.ItemImageFragment"
+        android:label="fragment_item_image_list"
+        tools:layout="@layout/fragment_item_image_list" >
+        <action
+            android:id="@+id/action_itemImageFragment_to_addNewItem"
+            app:destination="@id/addNewItem" />
+    </fragment>
+</navigation>
